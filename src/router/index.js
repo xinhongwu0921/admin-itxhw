@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Login from '@/views/Login'
 import Home from '@/views/Home'
 import Welcome from '@/views/welcome/Welcome'
-
+import User from '@/user/User'
 Vue.use(Router)
 
 export default new Router({
@@ -24,6 +24,11 @@ export default new Router({
           name: 'Welcome',
           path: 'welcome',
           component: Welcome
+        },
+        {
+          name: 'User',
+          path: 'user',
+          component: User
         }
       ]
     }
