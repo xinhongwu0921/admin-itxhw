@@ -1,10 +1,66 @@
 <template>
   <div class="home">
   <el-container>
-    <el-header>Header</el-header>
+    <el-header>
+
+      <!--头部-->
+        <img src="../assets/logo.png">
+        <div class="system-title">电商后台管理系统</div>
+        <div>
+          <span>你好，欢迎使用</span>
+          <el-button type="text" @click="logout">退出</el-button>
+        </div>
+
+    </el-header>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
-      <el-main>Main</el-main>
+      <!--左侧导航-->
+      <el-aside width="200px">
+
+        <el-menu
+          default-active="2"
+          class="el-menu-vertical-demo"
+          @open="handleOpen"
+          @close="handleClose">
+
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>用户管理</span>
+            </template>
+          <el-menu-item index="2">
+            <i class="el-icon-menu"></i>
+            <span slot="title">用户列表</span>
+          </el-menu-item>
+          </el-submenu>
+        </el-menu>
+
+        <el-menu
+          default-active="2"
+          class="el-menu-vertical-demo"
+          @open="handleOpen"
+          @close="handleClose">
+
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>权限管理</span>
+            </template>
+            <el-menu-item index="2">
+              <i class="el-icon-menu"></i>
+              <span slot="title">权限列表</span>
+            </el-menu-item>
+            <el-menu-item index="3">
+              <i class="el-icon-menu"></i>
+              <span slot="title">角色列表</span>
+            </el-menu-item>
+          </el-submenu>
+        </el-menu>
+      </el-aside>
+
+      <!--中间内容部分-->
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
   </div>
@@ -12,7 +68,21 @@
 
 <script>
     export default {
-        name: "home"
+        name: "home",
+      methods: {
+        handleOpen(key, keyPath) {
+          console.log(key, keyPath);
+        },
+        handleClose(key, keyPath) {
+          console.log(key, keyPath);
+        },
+        logout(){
+          //清除token
+          localStorage.removeItem("mytoken")
+          //返回到登录页面
+          this.$router.push({name:'/login'})
+        }
+      }
     }
 </script>
 
