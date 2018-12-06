@@ -7,7 +7,7 @@
         <img src="../assets/logo.png">
         <div class="system-title">电商后台管理系统</div>
         <div>
-          <span>你好，欢迎使用</span>
+          <span>{{$store.getters.username}}你好，欢迎使用本系统</span>
           <el-button type="text" @click="logout">退出</el-button>
         </div>
 
