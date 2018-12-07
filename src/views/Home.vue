@@ -22,7 +22,7 @@
           @open="handleOpen"
           @close="handleClose">
 
-          <el-submenu >
+          <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>用户管理</span>
