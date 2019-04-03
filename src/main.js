@@ -1,5 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+/* eslint-disable no-new */
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -11,7 +12,7 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 // eslint-disable-next-line
 /* eslint-disable no-new */
-//注册一个路由全局守卫,防止未登录的用户进入其他页面
+/* eslint-disable */
 router.beforeEach((to,from,next)=>{
   let token=localStorage.getItem('mytoken')
   if(token){

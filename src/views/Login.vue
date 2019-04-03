@@ -19,6 +19,7 @@
   </div>
 </template>
 <script>
+/*eslint-disable*/
   import {checkUser} from '@/api'
 
   export default {
@@ -45,7 +46,7 @@
           if (valide) {
             checkUser(this.form).then(res => {
               // 如果成功要跳转至首页, 将token保存到localStorage,username保存到vuex的state中
-              if (res.meta.status === 200) {
+              if (res.meta.status == 200) {
                 localStorage.setItem('mytoken', res.data.token)
                 this.$store.commit("setUsername",res.data.username)
                 this.$router.push({name: 'Home'})
